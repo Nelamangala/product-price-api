@@ -1,9 +1,9 @@
 ---
 applications:
-- name: spring-music
+- name: product-price
   memory: 1G
   random-route: true
-  path: build/libs/spring-music.jar
+  path: build/libs/product-price.jar
  
 services:
  - mongodb

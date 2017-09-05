@@ -1,0 +1,8 @@
+[
+    {
+        "_class": "org.target.product.price.domain.ProductPrice",
+        "product_id": "13860428",
+        "price": 13.49,
+        "currency": "USD"
+    }
+]
