@@ -2,8 +2,8 @@
 applications:
 - name: product-price
   memory: 1G
-  random-route: true
-  path: build/libs/product-price.jar
+  routes:
+  - route: target-product-pricing.cfapps.io
  
 services:
  - mongodb

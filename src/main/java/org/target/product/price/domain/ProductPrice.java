@@ -1,12 +1,19 @@
 package org.target.product.price.domain;
 
-import javax.persistence.Id;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "product-price")
 public class ProductPrice {
-	
+	public static final String COLLECTION_NAME = "product-price";
+    
 	@Id
-    private String product_id;
+    private String id;
+        
     private Double price;
+    
     private String currency;
 
     public ProductPrice() {
@@ -14,17 +21,9 @@ public class ProductPrice {
 
 	public ProductPrice(String product_id, Double price, String currency) {
 		super();
-		this.product_id = product_id;
+		this.id = product_id;
 		this.price = price;
 		this.currency = currency;
-	}
-
-	public String getProduct_id() {
-		return product_id;
-	}
-
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
 	}
 
 	public Double getPrice() {
@@ -42,5 +41,14 @@ public class ProductPrice {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
 }

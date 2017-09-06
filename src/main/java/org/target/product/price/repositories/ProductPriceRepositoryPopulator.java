@@ -19,13 +19,13 @@ import org.target.product.price.domain.ProductPrice;
 import java.util.Collection;
 
 @Component
-public class AlbumRepositoryPopulator implements ApplicationListener<ContextRefreshedEvent>, ApplicationContextAware {
+public class ProductPriceRepositoryPopulator implements ApplicationListener<ContextRefreshedEvent>, ApplicationContextAware {
     private final Jackson2ResourceReader resourceReader;
     private final Resource sourceData;
 
     private ApplicationContext applicationContext;
 
-    public AlbumRepositoryPopulator() {
+    public ProductPriceRepositoryPopulator() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         resourceReader = new Jackson2ResourceReader(mapper);
@@ -40,11 +40,11 @@ public class AlbumRepositoryPopulator implements ApplicationListener<ContextRefr
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if (event.getApplicationContext().equals(applicationContext)) {
-            CrudRepository albumRepository =
+            CrudRepository productPriceRepository =
                     BeanFactoryUtils.beanOfTypeIncludingAncestors(applicationContext, CrudRepository.class);
 
-            if (albumRepository != null && albumRepository.count() == 0) {
-                populate(albumRepository);
+            if (productPriceRepository != null && productPriceRepository.count() == 0) {
+                populate(productPriceRepository);
             }
         }
 
