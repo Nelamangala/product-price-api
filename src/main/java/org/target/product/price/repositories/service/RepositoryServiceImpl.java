@@ -1,8 +1,6 @@
 package org.target.product.price.repositories.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.target.product.price.domain.ProductPrice;
 import org.target.product.price.repositories.mongodb.MongoAlbumRepository;

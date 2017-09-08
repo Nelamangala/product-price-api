@@ -22,7 +22,23 @@ apply plugin: 'idea'
 
 apply plugin: 'org.springframework.boot'
 
-version = '1.0'
+apply plugin: 'maven-publish'
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId 'org.target.product'
+            artifactId 'product-price-api'
+            version '0.0.1-SNAPSHOT'
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -50,5 +66,5 @@ dependencies {
 
 jar {
     baseName = "product-price"
-    version = "" // omit the version from the war file name
-}
+    version = "0.0.1-SNAPSHOT"
+ }
