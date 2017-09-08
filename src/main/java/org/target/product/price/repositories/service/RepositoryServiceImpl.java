@@ -31,6 +31,9 @@ public class RepositoryServiceImpl implements RepositoryService {
 
 	@Override
 	public ProductPrice update(ProductPrice productPrice) {
+		if(repository.findOne(productPrice.getId()) == null) {
+			return null;
+		}
 		return repository.save(productPrice);
 	}
 
